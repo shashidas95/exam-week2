@@ -5,12 +5,16 @@ document.addEventListener('DOMContentLoaded', () => {
  const messageArea = document.querySelector('.message-area');
  const filterButtons = document.querySelectorAll('.filter-btn');
  const clearCompletedBtn = document.getElementById('clearCompletedBtn');
+
  // load from local storage
  let todos = JSON.parse(localStorage.getItem('todos')) || [];
+
  // for maintain unique id 
  let nextTodoId = todos.length > 0 ? Math.max(...todos.map(todo => todo.id)) + 1 : 1;
+
  //filter type set up
  let currentFilter = 'all';
+ 
  //create a task Dom Element
  function createTodoItemElement(todo) {
   const listItem = document.createElement('li');
